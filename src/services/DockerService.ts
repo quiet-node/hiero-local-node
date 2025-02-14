@@ -263,14 +263,14 @@ export class DockerService implements IService{
     private logShellOutput(shellExec: any) {
         [shellExec.stdout, shellExec.stderr].forEach( (output: string) => {
             output.split("\n").map((line: string) => {
-                if (line.indexOf(SHARED_PATHS_ERROR) > -1 || line.indexOf(MOUNT_ERROR) > -1) {
-                    this.logger.error(`Hedera local node start up TERMINATED due to docker's misconfiguration`);
-                    this.logger.error(SHARED_PATHS_ERROR);
-                    this.logger.error(`See https://docs.docker.com/desktop/settings/mac/#file-sharing for more info.`);
-                    this.logger.error(`-- If you're using hedera-local as npm package - running 'npm root -g' should output the path you have to add under File Sharing Docker's Setting.`);
-                    this.logger.error(`-- If you're using hedera-local as cloned repo - running 'pwd' in the project's root should output the path you have to add under File Sharing Docker's Setting.`);
-                    process.exit();
-                }
+                // if (line.indexOf(SHARED_PATHS_ERROR) > -1 || line.indexOf(MOUNT_ERROR) > -1) {
+                //     this.logger.error(`Hedera local node start up TERMINATED due to docker's misconfiguration`);
+                //     this.logger.error(SHARED_PATHS_ERROR);
+                //     this.logger.error(`See https://docs.docker.com/desktop/settings/mac/#file-sharing for more info.`);
+                //     this.logger.error(`-- If you're using hedera-local as npm package - running 'npm root -g' should output the path you have to add under File Sharing Docker's Setting.`);
+                //     this.logger.error(`-- If you're using hedera-local as cloned repo - running 'pwd' in the project's root should output the path you have to add under File Sharing Docker's Setting.`);
+                //     process.exit();
+                // }
                 if (line === "") return;
                 this.logger.debug(line, this.serviceName);
             });
